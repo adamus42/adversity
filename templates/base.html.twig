@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+        and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <nav>
+                <div class="nav-wrapper">
+                  <a href="#" class="brand-logo">Portfolio</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock  %}
+</body>
+</html>

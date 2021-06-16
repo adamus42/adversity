@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Upload</title>  
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper blue-grey lighten-1">
+      <a href="{{ path('index')}}" class="brand-logo">Mon Album Photo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ path('index')}}">Accueil</a></li>
+        <li><a href="{{ path('upload')}}">Upload</a></li>
+      </ul>
+    </div>
+  </nav>
+<div class="row">
+  <div class="col s12 center"><h4>Formulaire Upload</h4></div>
+</div>
+  <div class="row form">
+  	<div class="col s4 offset-s4">
+      {{ form_start(formUpload) }}
+      <div class="input-field col s6">
+        {{ form_errors(formUpload) }}
+      </div>
+      <div class="row">
+       <div class="input-field col s12">
+          {{ form_row(formUpload.title) }}
+        </div>
+        <div class="input-field col s12">
+          {{ form_row(formUpload.imageFile) }}
+        </div>
+       <div class="input-field col s12 center">
+         {{ form_row(formUpload.submit, { 'label': 'Valider', 'attr':{'class':'waves-effect waves-light btn  green'} }) }}
+       </div>
+     </div>
+     {{ form_end(formUpload) }}
+   </div>
+ </div>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>{{ photo.slug}}</title>  
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper blue-grey lighten-1">
+      <a href="{{ path('index')}}" class="brand-logo">Mon Album Photo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href="{{ path('index')}}">Accueil</a></li>
+       <li><a href="{{ path('upload')}}">Upload</a></li>
+     </ul>
+   </div>
+ </nav>
+ <div class="row">
+   <div class="col s10 offset-s1">
+    <figure  class="col s12 m10 offset-m1 center">
+      <img src="{{ vich_uploader_asset(photo, 'imageFile')}}" alt="{{ photo.slug}}"  />
+      <figcaption>
+        <form action="{{ path('deletePhoto')}}" method="post">
+          <input type="hidden" value="{{ photo.id}}" name='idPhoto'>
+          {{photo.image}}
+           <div class="input-field col s12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Supprimer
+            <i class="material-icons right">delete</i>
+          </button>
+        </div>
+        </form>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+

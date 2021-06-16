@@ -1,0 +1,56 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Accueil Album{% endblock %}
+
+{% block body %}
+ <nav>
+                <div class="nav-wrapper">
+                  <a href="#" class="brand-logo">Logo</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="sass.html">Sass</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
+      {% endblock body %} #}
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <meta charset="utf-8">
+        <title>Accueil</title>  
+      </head>
+      <body>
+        <nav>
+          <div class="nav-wrapper blue-grey lighten-1">
+            <a href="{{ path('index')}}" class="brand-logo">Mon Album Photo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="{{ path('index')}}">Accueil</a></li>
+              <li><a href="{{ path('upload')}}">Upload</a></li>
+
+            </ul>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col m10 offset-m1 " >
+            <div class=" navigation">
+
+            </div>
+          </div>
+          <div class="col s10 offset-s1">
+            {% for photo in photos %}
+              <figure class="col s4 m3">
+                <img src="{{ vich_uploader_asset(photo, 'imageFile') }}" alt="{{ photo.slug}}" width='100%'  />
+                <figcaption><a href="{{ path('photo', {'slug': photo.slug}) }}">{{photo.image}}</a></figcaption>
+              </figure>
+            {% endfor %}
+          </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      </body>
+      </html>
+
+
